@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anisha ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#ffb6d9,#ff65ae,#ffc1df);
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  color: white;
+}
+
+#hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  animation: float 8s linear forwards;
+  opacity: .7;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 450px;
+  margin: auto;
+  padding: 35px 20px 50px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 29px;
+  margin-bottom: 15px;
+  text-shadow: 0 3px 10px #c50066;
+}
+
+.subtitle {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.gift {
+  position: relative;
+  width: 210px;
+  height: 190px;
+  margin: 100px auto 30px;
+  cursor: pointer;
+}
+
+.box {
+  position: absolute;
+  bottom: 0;
+  width: 210px;
+  height: 135px;
+  background: #fff0f7;
+  border-radius: 8px 8px 20px 20px;
+  box-shadow: 0 15px 30px #a9005050;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  left: 90px;
+  width: 30px;
+  height: 100%;
+  background: #ec167c;
+}
+
+.lid {
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  width: 230px;
+  height: 43px;
+  background: #ffe0ef;
+  border: 3px solid #e83b8e;
+  border-radius: 8px;
+  z-index: 3;
+  transition: transform 1s ease;
+}
+
+.lid::before {
+  content: "";
+  position: absolute;
+  left: 97px;
+  width: 30px;
+  height: 100%;
+  background: #ec167c;
+}
+
+.bow {
+  position: absolute;
+  top: -32px;
+  left: 75px;
+  font-size: 60px;
+  z-index: 4;
+  transition: transform 1s ease;
+}
+
+.gift.open .lid {
+  transform: translateY(-110px) rotate(-20deg);
+}
+
+.gift.open .bow {
+  transform: translateY(-110px) rotate(-20deg);
+}
+
+.hint {
+  font-size: 16px;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: .4; }
+}
+
+.message {
+  display: none;
+  background: #fff7fb;
+  color: #d52b80;
+  padding: 28px 22px;
+  border-radius: 22px;
+  margin-top: 35px;
+  box-shadow: 0 12px 35px #a9005040;
+  animation: appear 1s ease;
+}
+
+.message h2 {
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.message p {
+  font-size: 17px;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.signature {
+  margin-top: 25px;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.footer {
+  margin-top: 35px;
+  font-size: 14px;
+  opacity: .9;
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<main class="container">
+
+<h1>🎀 A Special Surprise 🎀</h1>
+
+<p class="subtitle">
+Someone has prepared something special for you ❤️
+</p>
+
+<div class="gift" id="gift" onclick="openGift()">
+  <div class="bow">🎀</div>
+  <div class="lid"></div>
+  <div class="box"></div>
+</div>
+
+<p class="hint" id="hint">
+Tap the gift to open it 💗
+</p>
+
+<div class="message" id="message">
+
+<h2>🎂 Happy Birthday, Anisha! ❤️</h2>
+
+<p>Dear Anisha 🥺
+
+You are truly a special person for me,
+and I'll never let you go at any cost. 😭
+
+You never know, pagal, how much I love you. 😘
+
+In the corner of your heart, I know
+you also love me. 😁
+
+Maybe sometimes we act like
+we don't talk anymore,
+but in the end, we always talk. 🥺
+
+May your life always be filled with
+happiness, endless smiles
+and beautiful memories.
+
+Never stop smiling and never get
+too excited over little things. ❤️</p>
+
+<div class="signature">
+💕 Lots of Love 💕
+</div>
+
+</div>
+
+<div class="footer">
+Made with ❤️ for Anisha
+</div>
+
+</main>
+
+<script>
+let opened = false;
+
+function openGift() {
+  if (opened) return;
+
+  opened = true;
+
+  document.getElementById("gift").classList.add("open");
+  document.getElementById("hint").style.display = "none";
+
+  setTimeout(() => {
+    const message = document.getElementById("message");
+    message.style.display = "block";
+
+    message.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }, 900);
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+  heart.textContent = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize =
+    (15 + Math.random() * 20) + "px";
+  heart.style.animationDuration =
+    (5 + Math.random() * 5) + "s";
+
+  document.getElementById("hearts").appendChild(heart);
+
+  setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
+
